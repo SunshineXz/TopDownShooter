@@ -1,0 +1,14 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\projects\\topdownshooter\\topdown\\source\\topdown\\topdown.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\projects\\topdownshooter\\topdown\\intermediate\\build\\win64\\x64\\topdowneditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.inclorderunreal5_3.h.pch",
+        "Includes": [
+            "c:\\projects\\topdownshooter\\topdown\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\topdown\\definitions.topdown.h",
+            "c:\\projects\\topdownshooter\\topdown\\source\\topdown\\topdown.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

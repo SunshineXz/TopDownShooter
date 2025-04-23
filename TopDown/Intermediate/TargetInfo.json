@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "TopDown",
+			"Path": "..\\Source\\TopDown.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "TopDownEditor",
+			"Path": "..\\Source\\TopDownEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}
