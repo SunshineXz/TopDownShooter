@@ -26,7 +26,7 @@ void ATopDownPlayerController::Move(const FInputActionValue& InputActionValue)
 	}
 }
 
-void ATopDownPlayerController::Look(const FInputActionValue& InputActionValue)
+void ATopDownPlayerController::Look()
 {
 	if (APawn* ControlledPawn = GetPawn())
 	{
@@ -36,8 +36,8 @@ void ATopDownPlayerController::Look(const FInputActionValue& InputActionValue)
 			float PawnZ = ControlledPawn->GetActorLocation().Z;
 			float T = (PawnZ - WorldLocation.Z) / WorldDirection.Z;
 			FVector GroundMousePos = WorldLocation + (WorldDirection * T);
+			
 			LookDirection = (GroundMousePos - ControlledPawn->GetActorLocation()).GetSafeNormal2D();
-			ControlledPawn->SetActorRotation(LookDirection.Rotation());
 		}
 	}
 }
@@ -66,8 +66,13 @@ void ATopDownPlayerController::SetupInputComponent()
 	if (UEnhancedInputComponent* EnhancedInputComponent = Cast<UEnhancedInputComponent>(InputComponent))
 	{
 		EnhancedInputComponent->BindAction(IA_Move, ETriggerEvent::Triggered, this, &ATopDownPlayerController::Move);
-		EnhancedInputComponent->BindAction(IA_Look, ETriggerEvent::Triggered, this, &ATopDownPlayerController::Look);
 		EnhancedInputComponent->BindAction(IA_Fire, ETriggerEvent::Triggered, this, &ATopDownPlayerController::Fire);
 		EnhancedInputComponent->BindAction(IA_Dash, ETriggerEvent::Triggered, this, &ATopDownPlayerController::Dash);
 	}
+}
+
+void ATopDownPlayerController::Tick(float DeltaSeconds)
+{
+	Super::Tick(DeltaSeconds);
+	Look();
 }

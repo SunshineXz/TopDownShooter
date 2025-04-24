@@ -10,6 +10,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeTopDownPlayerController() {}
 
 // Begin Cross Module References
+COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
 ENGINE_API UClass* Z_Construct_UClass_APlayerController();
 ENHANCEDINPUT_API UClass* Z_Construct_UClass_UInputAction_NoRegister();
 ENHANCEDINPUT_API UClass* Z_Construct_UClass_UInputMappingContext_NoRegister();
@@ -63,12 +64,17 @@ struct Z_Construct_UClass_ATopDownPlayerController_Statics
 		{ "Category", "Input" },
 		{ "ModuleRelativePath", "Private/TopDownPlayerController.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_LookDirection_MetaData[] = {
+		{ "Category", "TopDownPlayerController" },
+		{ "ModuleRelativePath", "Private/TopDownPlayerController.h" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_InputMappingContext;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_IA_Move;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_IA_Look;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_IA_Fire;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_IA_Dash;
+	static const UECodeGen_Private::FStructPropertyParams NewProp_LookDirection;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -81,12 +87,14 @@ const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ATopDownPlayer
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ATopDownPlayerController_Statics::NewProp_IA_Look = { "IA_Look", nullptr, (EPropertyFlags)0x0040000000000015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ATopDownPlayerController, IA_Look), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_IA_Look_MetaData), NewProp_IA_Look_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ATopDownPlayerController_Statics::NewProp_IA_Fire = { "IA_Fire", nullptr, (EPropertyFlags)0x0040000000000015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ATopDownPlayerController, IA_Fire), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_IA_Fire_MetaData), NewProp_IA_Fire_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ATopDownPlayerController_Statics::NewProp_IA_Dash = { "IA_Dash", nullptr, (EPropertyFlags)0x0040000000000015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ATopDownPlayerController, IA_Dash), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_IA_Dash_MetaData), NewProp_IA_Dash_MetaData) };
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_ATopDownPlayerController_Statics::NewProp_LookDirection = { "LookDirection", nullptr, (EPropertyFlags)0x0010000000000015, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ATopDownPlayerController, LookDirection), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_LookDirection_MetaData), NewProp_LookDirection_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ATopDownPlayerController_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATopDownPlayerController_Statics::NewProp_InputMappingContext,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATopDownPlayerController_Statics::NewProp_IA_Move,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATopDownPlayerController_Statics::NewProp_IA_Look,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATopDownPlayerController_Statics::NewProp_IA_Fire,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATopDownPlayerController_Statics::NewProp_IA_Dash,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATopDownPlayerController_Statics::NewProp_LookDirection,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ATopDownPlayerController_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_ATopDownPlayerController_Statics::DependentSingletons[])() = {
@@ -129,10 +137,10 @@ ATopDownPlayerController::~ATopDownPlayerController() {}
 struct Z_CompiledInDeferFile_FID_Projects_TopDownShooter_TopDown_Source_TopDown_Private_TopDownPlayerController_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ATopDownPlayerController, ATopDownPlayerController::StaticClass, TEXT("ATopDownPlayerController"), &Z_Registration_Info_UClass_ATopDownPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ATopDownPlayerController), 3844480777U) },
+		{ Z_Construct_UClass_ATopDownPlayerController, ATopDownPlayerController::StaticClass, TEXT("ATopDownPlayerController"), &Z_Registration_Info_UClass_ATopDownPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ATopDownPlayerController), 1058964254U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Projects_TopDownShooter_TopDown_Source_TopDown_Private_TopDownPlayerController_h_3280365279(TEXT("/Script/TopDown"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Projects_TopDownShooter_TopDown_Source_TopDown_Private_TopDownPlayerController_h_1186111655(TEXT("/Script/TopDown"),
 	Z_CompiledInDeferFile_FID_Projects_TopDownShooter_TopDown_Source_TopDown_Private_TopDownPlayerController_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Projects_TopDownShooter_TopDown_Source_TopDown_Private_TopDownPlayerController_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

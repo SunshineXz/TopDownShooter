@@ -34,14 +34,19 @@ class ATopDownPlayerController : public APlayerController
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Input, meta=(AllowPrivateAccess = "true"))
 	UInputAction* IA_Dash;
 
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	FVector LookDirection;
+
+
 protected:
 	void Move(const FInputActionValue& InputActionValue);
-	void Look(const FInputActionValue& InputActionValue);
+	void Look();
 	void Fire(const FInputActionValue& InputActionValue);
 	void Dash(const FInputActionValue& InputActionValue);
 
 	virtual void SetupInputComponent() override;
+	virtual void Tick(float DeltaSeconds) override;
 
 private:
-	FVector LookDirection;
 };  
